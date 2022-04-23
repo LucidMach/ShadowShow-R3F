@@ -1,9 +1,10 @@
 import { extend, Object3DNode } from "@react-three/fiber";
+import { useMemo } from "react";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
 import vampiro from "./Vampiro One_Regular.json";
 
-extend({ TextGeometry });
+// extend({ TextGeometry });
 
 declare global {
   namespace JSX {
@@ -18,6 +19,8 @@ interface Props {
 }
 
 const Text: React.FC<Props> = ({ content }) => {
+  useMemo(() => extend({ TextGeometry }), []);
+
   const font = new FontLoader().parse(vampiro);
   return (
     <mesh position={[-0.4, -0.4, 5]} castShadow receiveShadow>
