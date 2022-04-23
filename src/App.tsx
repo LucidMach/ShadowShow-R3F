@@ -18,7 +18,10 @@ const App = () => {
 
   return (
     <>
-      <Canvas shadows style={{ height: "100vh", background: color + "77" }}>
+      <Canvas
+        shadows
+        style={{ height: window.innerHeight, background: color + "77" }}
+      >
         <ambientLight intensity={0.1} />
         <directionalLight
           intensity={0.9}
@@ -29,6 +32,19 @@ const App = () => {
         <Text content={content} />
         <BoxCanvas />
       </Canvas>
+      <a
+        style={{
+          display: "block",
+          textAlign: "center",
+          position: "absolute",
+          bottom: "3vh",
+          right: "2vh",
+          color: color,
+        }}
+        href="https://twitter.com/lucidmach"
+      >
+        @lucidmach
+      </a>
     </>
   );
 };
